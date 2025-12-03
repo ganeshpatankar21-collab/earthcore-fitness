@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>EarthCore Fitness – Strength Rooted in Sustainability</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --green: #285b3a;
+      --light-green: #c5dc8b;
+      --dark: #060808;
+      --text: #f5f5f5;
+      --muted: #c9c9c9;
+      --accent: #f3f7ea;
+      --shadow: 0 10px 25px rgba(0,0,0,0.25);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050606;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(6,8,8,0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-img {
+      height: 42px;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+    }
+
+    .nav-links a {
+      opacity: 0.8;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--light-green);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+      padding: 3rem 0 2.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #7cd97d;
+      box-shadow: 0 0 10px #7cd97d;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 3.3vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 span {
+      color: var(--light-green);
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      max-width: 32rem;
+      font-size: 0.95rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #7cd97d, #285b3a);
+      color: #020303;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: var(--text);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      color: var(--light-green);
+      font-weight: 600;
+      margin-right: 0.25rem;
+    }
+
+    .hero-card {
+      border-radius: var(--radius);
+      background: radial-gradient(circle at 10% 0%, #325f3a, #050606);
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: var(--shadow);
+      padding: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.45);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--light-green);
+    }
+
+    .hero-equipment-img {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: #111;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .hero-pill {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 2.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .section-headline {
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 0.9rem;
+      max-width: 34rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .card {
+      border-radius: var(--radius);
+      background: #0a0c0a;
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 1.4rem;
+    }
+
+    .pill-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 0.55rem;
+      font-size: 0.9rem;
+    }
+
+    .list li::before {
+      content: "•";
+      color: var(--light-green);
+      margin-right: 0.45rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(124, 217, 125, 0.12);
+      border: 1px solid rgba(124, 217, 125, 0.35);
+      color: var(--light-green);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* FOUNDER */
+
+    .founder-card {
+      border-radius: var(--radius);
+      background: radial-gradient(circle at 0 0, #23452d, #050606);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1.4rem;
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr);
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .founder-photo {
+      width: 90px;
+      height: 90px;
+      border-radius: 999px;
+      background: url('hero-earthcore.png') center/cover no-repeat, #111;
+      border: 2px solid #7cd97d;
+    }
+
+    .founder-name {
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .founder-role {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    /* PRODUCTS */
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .product-card {
+      border-radius: var(--radius);
+      background: #090b09;
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 1.1rem;
+    }
+
+    .product-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-img {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 0.6rem;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.3rem;
+    }
+
+    .product-pill {
+      font-size: 0.72rem;
+      padding: 0.16rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+    }
+
+    /* WHY EARTHCORE */
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .why-card {
+      border-radius: var(--radius);
+      background: #090b09;
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .why-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    /* SOCIAL SECTION */
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .social-mockup {
+      width: 100%;
+      max-width: 340px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+      display: block;
+      object-fit: cover;
+      background: #fff;
+    }
+
+    .handles-list {
+      list-style: none;
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .handles-list li span {
+      color: var(--light-green);
+      font-weight: 600;
+      margin-right: 0.4rem;
+    }
+
+    /* CTA / CONTACT */
+
+    .cta {
+      border-radius: var(--radius);
+      background: radial-gradient(circle at 0 0, #325f3a, #050606);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1.7rem 1.6rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .cta-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .cta-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .cta-form {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .cta-form input,
+    .cta-form textarea {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.6rem 0.85rem;
+      background: rgba(0,0,0,0.35);
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .cta-form textarea {
+      border-radius: 14px;
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    .cta-form input::placeholder,
+    .cta-form textarea::placeholder {
+      color: rgba(255,255,255,0.5);
+    }
+
+    footer {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 1.5rem 0 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer span {
+      color: var(--light-green);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero, .grid-2, .cta, .social-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      header { position: static; }
+
+      .nav {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .product-img,
+      .hero-equipment-img,
+      .social-mockup {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 1.1rem; }
+      .hero-card { margin-top: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <!-- logo -->
+      <img src="earthcore-logo.png" alt="EarthCore Fitness logo" class="logo-img" />
+
+      <div class="nav-links">
+        <a href="#top">Home</a>
+        <a href="#products">Products</a>
+        <a href="#why">Why EarthCore</a>
+        <a href="#social">Social</a>
+        <a href="#founder">Founder</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="badge">
+          <div class="badge-dot"></div>
+          Compact eco-fitness for real student rooms
+        </div>
+        <h1>
+          Train anywhere. <span>Respect the planet.</span>
+        </h1>
+        <p class="hero-sub">
+          EarthCore Fitness is a student-led eco-fitness brand creating compact, sustainable equipment and skin-friendly activewear for small spaces, tight schedules, and conscious lifestyles.
+        </p>
+        <div class="hero-cta">
+          <button class="btn btn-primary">Join Early Testers</button>
+          <button class="btn btn-outline">View Equipment Demo</button>
+        </div>
+        <div class="hero-meta">
+          <div><span>Compact</span> folds away into a student bedroom corner.</div>
+          <div><span>Eco-first</span> recycled steel, rubber & fabrics.</div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-tag">All-in-One Upper Body Station</div>
+        <!-- use product1-ecosystem as the equipment image -->
+        <img src="product1-ecosystem.png" alt="EarthCore all-in-one upper body equipment" class="hero-equipment-img" />
+        <p>
+          Multi-function, compact and foldable equipment designed for rows, presses, pulldowns and more – without taking over your room.
+        </p>
+        <div class="hero-card-footer">
+          <div class="hero-pill">Compact & Foldable</div>
+          <div class="hero-pill">Upper Body Focus</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- BRAND STORY -->
+    <section id="about">
+      <div class="section-kicker">Brand Story</div>
+      <h2 class="section-headline">Built Around Real Student Life</h2>
+      <p class="section-sub">
+        EarthCore started when I realised that traditional home gyms and memberships didn’t match how students and young professionals actually live — limited space, time and money. The brand is my answer: a compact, sustainable ecosystem that lets you train seriously from your own room.
+      </p>
+    </section>
+
+       <!-- PRODUCTS -->
+    <section id="products">
+      <div class="section-kicker">Product Ecosystem</div>
+      <h2 class="section-headline">Compact Equipment & Skin-Friendly Activewear</h2>
+      <p class="section-sub">
+        EarthCore products are designed to work together as a minimal, high-performance
+        home gym — engineered with recycled materials and built for real student living.
+      </p>
+
+      <div class="products-grid">
+        <!-- 1) All-in-one equipment (MACHINE) -->
+        <article class="product-card">
+          <h3 class="product-title">All-in-One Upper Body Compact & Foldable Equipment</h3>
+          <img src="product2-ecosystem.png"
+               alt="All-in-one compact upper body equipment"
+               class="product-img" />
+          <p class="product-meta">
+            A versatile, space-saving machine for rows, presses, pulldowns and push movements –
+            designed to fold away when you’re done.
+          </p>
+          <ul class="list">
+            <li>Compact footprint engineered for shared rooms and small flats.</li>
+            <li>Multiple upper body exercises from one station.</li>
+            <li>Integrated wheels for easy repositioning and storage.</li>
+          </ul>
+          <div class="product-pill-row">
+            <span class="product-pill">Upper Body</span>
+            <span class="product-pill">Compact</span>
+            <span class="product-pill">Foldable</span>
+          </div>
+        </article>
+
+        <!-- 2) Eco-Activewear (MODEL) -->
+        <article class="product-card">
+          <h3 class="product-title">Eco-Activewear Set</h3>
+          <img src="hero-earthcore.png"
+               alt="EarthCore eco activewear"
+               class="product-img" />
+          <p class="product-meta">
+            Skin-friendly, breathable activewear made from recycled and hypoallergenic fabrics –
+            designed for everyday training and commuting.
+          </p>
+          <ul class="list">
+            <li>Soft, moisture-wicking fabric that’s comfortable on sensitive skin.</li>
+            <li>Minimal seam design to reduce irritation.</li>
+            <li>EarthCore branding in understated, everyday colourways.</li>
+          </ul>
+          <div class="product-pill-row">
+            <span class="product-pill">Recycled Fibres</span>
+            <span class="product-pill">Hypoallergenic</span>
+            <span class="product-pill">Unisex Fit</span>
+          </div>
+        </article>
+
+        <!-- 3) Starter Kit (OTHER MACHINE) -->
+        <article class="product-card">
+          <h3 class="product-title">EarthCore Starter Kit</h3>
+          <img src="product1-ecoystem.png"
+               alt="EarthCore starter kit equipment"
+               class="product-img" />
+          <p class="product-meta">
+            A curated bundle combining the all-in-one equipment, resistance bands and access
+            to beginner-friendly digital routines.
+          </p>
+          <ul class="list">
+            <li>Follow-along room workouts for busy days.</li>
+            <li>No gym membership or commute required.</li>
+            <li>Designed to build consistency over perfection.</li>
+          </ul>
+          <div class="product-pill-row">
+            <span class="product-pill">Bundle Value</span>
+            <span class="product-pill">Beginner Friendly</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <!-- WHY EARTHCORE -->
+    <section id="why">
+      <div class="section-kicker">Why EarthCore</div>
+      <h2 class="section-headline">Why Choose EarthCore Over Traditional Home Gyms?</h2>
+      <p class="section-sub">
+        EarthCore isn’t just another piece of equipment. It’s a lifestyle fit for students and young professionals who care about performance, space and the planet.
+      </p>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <h3>High Quality, Student-Friendly Price</h3>
+          <p>
+            Designed around real budgets, not luxury price tags. You get durable, versatile equipment without paying premium gym-brand mark-ups.
+          </p>
+        </div>
+        <div class="why-card">
+          <h3>Compact & Foldable Design</h3>
+          <p>
+            Built for small rooms, shared flats and busy lives. Equipment can be folded away or rolled into a corner once you’re done training.
+          </p>
+        </div>
+        <div class="why-card">
+          <h3>Sustainable at the Core</h3>
+          <p>
+            From recycled materials to low-waste packaging, EarthCore is rooted in sustainability, not just performance.
+          </p>
+        </div>
+        <div class="why-card">
+          <h3>Founder-Led & Authentic</h3>
+          <p>
+            Created by a student who lives the same challenges as the target audience – no generic marketing, just real lived experience.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL CHANNELS -->
+    <section id="social">
+      <div class="section-kicker">Social Channels</div>
+      <h2 class="section-headline">Where I’ll Communicate the EarthCore Story</h2>
+      <p class="section-sub">
+        My communication strategy is founder-led: I’ll personally appear in content, demonstrating workouts, sharing progress and explaining the sustainability choices behind EarthCore.
+      </p>
+
+      <div class="social-grid">
+        <div>
+          <ul class="handles-list">
+            <li><span>Instagram:</span> @earthcorefitness</li>
+            <li><span>YouTube:</span> EarthCore Fitness</li>
+            <li><span>TikTok:</span> @earthcore.fit</li>
+          </ul>
+          <div class="tag-row" style="margin-top:1rem;">
+            <span class="tag">Workout Demos</span>
+            <span class="tag">Founder Story</span>
+            <span class="tag">Sustainability Tips</span>
+          </div>
+        </div>
+        <!-- your PNG mockup -->
+        <img src="social-mockup.png" alt="Instagram, YouTube and TikTok mockup for EarthCore" class="social-mockup" />
+      </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section id="founder">
+      <div class="section-kicker">Founder Story</div>
+      <h2 class="section-headline">Built From My Own Need for a Better Way to Train</h2>
+      <p class="section-sub">
+        As a full-time student, I experienced the exact problems EarthCore now solves: expensive memberships, crowded gyms, and non-eco-friendly equipment that didn’t fit my values or my room.
+      </p>
+
+      <div class="founder-card">
+        <div class="founder-photo"></div>
+        <div>
+          <div class="founder-name">Kailash Ghorpade</div>
+          <div class="founder-role">Founder & Concept Designer, EarthCore Fitness</div>
+          <p style="font-size:0.88rem; color:var(--muted);">
+            I created EarthCore to give students and young professionals like me a compact, sustainable way to stay strong. The brand is a blend of my own fitness journey, my interest in sustainable design, and my belief that training should fit real life—not the other way around.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / CTA -->
+    <section id="contact">
+      <div class="cta">
+        <div>
+          <div class="cta-title">Want to test EarthCore or collaborate?</div>
+          <p class="cta-text">
+            I’m currently developing prototypes and looking for students, young professionals and partners who share a passion for sustainable fitness. Join the early community or reach out for collaboration.
+          </p>
+          <div class="hero-meta">
+            <div><span>Early Access</span> prototype testing & feedback.</div>
+            <div><span>Collabs</span> universities, influencers & eco-suppliers.</div>
+          </div>
+        </div>
+        <form class="cta-form">
+          <input type="text" placeholder="Your name" />
+          <input type="email" placeholder="Email address" />
+          <textarea placeholder="Tell me how you’d like to get involved"></textarea>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      © <span>EarthCore Fitness</span> – Concept brand by Kailash Ghorpade. Built for students, designed for the planet.
+    </footer>
+  </main>
+</body>
+</html>
